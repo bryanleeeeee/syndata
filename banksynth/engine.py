@@ -2,6 +2,7 @@ from dataclasses import asdict, dataclass
 from datetime import date, timedelta
 import numpy as np
 import pandas as pd
+from banksynth.limits import get_limits
 
 MARKETS = {"Singapore": "SGD", "United Kingdom": "GBP", "United States": "USD", "European Union": "EUR"}
 PRESETS = {
@@ -24,12 +25,13 @@ class Config:
     selected_fields: tuple[str, ...] | None = None
 
     def validate(self):
-        for field, low, high in [("customers", 10, 10000), ("transactions_per_account", 1, 100), ("days", 7, 730), ("seed", 0, 2**32 - 1)]:
+        limits = get_limits()
+        for field, low, high in [("customers", 10, limits["customers"]), ("transactions_per_account", 1, 100), ("days", 7, 730), ("seed", 0, 2**32 - 1)]:
             value = getattr(self, field)
             if isinstance(value, bool) or not isinstance(value, int) or not low <= value <= high:
                 raise ValueError(f"{field} must be an integer between {low} and {high}.")
-        if self.customers * 2 * self.transactions_per_account > 500000:
-            raise ValueError("Choose fewer customers or transactions. Interactive runs support up to 500,000 transactions.")
+        if self.customers * 2 * self.transactions_per_account > limits["transactions"]:
+            raise ValueError(f"Choose fewer customers or transactions. This deployment supports up to {limits['transactions']:,} backing transactions.")
         if self.market not in MARKETS or self.scenario not in PRESETS:
             raise ValueError("Choose a supported market and scenario.")
         if not 0 <= self.fraud_rate <= 0.5 or not 0 <= self.loan_rate <= 1:

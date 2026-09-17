@@ -1,4 +1,5 @@
 import streamlit as st
+from banksynth.limits import is_community
 
 st.set_page_config(page_title="Forma | Banking data studio", page_icon=":material/account_balance:", layout="wide")
 with st.sidebar:
@@ -13,7 +14,7 @@ page = st.navigation({"Workspace": [
 ], "Operate": [st.Page("app_pages/deploy.py", title="Deployment guide", icon=":material/cloud_upload:")]})
 with st.sidebar:
     st.space("large")
-    st.badge("Local execution", color="green", icon=":material/lock:")
-    st.caption("Your workspace. Your data.\n\nGeneration runs on this server without vendor API calls.")
+    st.badge("Community Cloud" if is_community() else "Server execution", color="green", icon=":material/lock:")
+    st.caption("Synthetic data only. No reference uploads." if is_community() else "Your workspace. Your data.\n\nGeneration runs on this server without vendor API calls.")
     st.caption("FORMA / v2.0")
 page.run()

@@ -17,6 +17,10 @@ with b:
         st.subheader("Enable SDV")
         st.code("python -m pip install -r requirements-sdv.txt", language="bash")
         st.caption("Use Python 3.11 for the optional SDV dependency set. Restart after installation.")
+with st.container(border=True):
+    st.subheader("Streamlit Community Cloud")
+    st.markdown("Repository: **bryanleeeeee/syndata** / Branch: **codex/field-studio** / Main file: **streamlit_app.py** / App URL: **datasynthetic**")
+    st.caption("Choose Python 3.12 in Advanced settings. No secrets required. This entrypoint enables a simulator-only public profile with smaller memory budgets.")
 st.subheader("Operational behavior")
 st.markdown("""
 - Datasets and uploaded reference profiles live in the current server session memory. No training data is written to disk by the app.

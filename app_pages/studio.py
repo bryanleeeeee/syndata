@@ -8,6 +8,9 @@ from banksynth.engine import Config, MARKETS
 from banksynth.field_engine import estimate_cells
 from banksynth.ui import current, run_generation, result_caption, download
 from banksynth.reference import validate_profile
+from banksynth.limits import get_limits, is_community
+
+limits = get_limits()
 
 STEPS = ["1 · Select fields", "2 · Generate", "3 · Results"]
 st.session_state.setdefault("chosen_fields", list(DEFAULT_FIELDS))
@@ -117,7 +120,9 @@ elif step == STEPS[1]:
     reference = None
     ready = True
     with left:
-        mode = st.selectbox("Generation engine", ["Simulator", "SDV customer profiles"], key="engine", help="SDV learns age, annual income and credit score only. Other fields use documented synthetic rules.")
+        mode = st.selectbox("Generation engine", (["Simulator"] if is_community() else ["Simulator", "SDV customer profiles"]), key="engine", help="SDV learns age, annual income and credit score only. Other fields use documented synthetic rules.")
+        if is_community():
+            st.caption("Public demo / Simulator only. Reference-trained SDV is available in private Cloudera/local deployments.")
         if mode != "Simulator":
             if importlib.util.find_spec("sdv") is None:
                 st.warning("Install requirements-sdv.txt and restart to enable SDV.")
@@ -139,7 +144,7 @@ elif step == STEPS[1]:
         with st.form("generate_form", border=True):
             a, b = st.columns(2)
             with a:
-                customers = st.number_input("Customers", 10, 10000, 1000, step=10, key="customers")
+                customers = st.number_input("Customers", 10, limits["customers"], 1000, step=10, key="customers")
                 market = st.selectbox("Market / currency", list(MARKETS), format_func=lambda x: f"{x} / {MARKETS[x]}")
                 days = st.select_slider("History (days)", options=[7, 30, 60, 90, 180, 365, 730], value=90)
             with b:
@@ -149,14 +154,15 @@ elif step == STEPS[1]:
             with st.expander("Advanced generation settings", icon=":material/tune:"):
                 fraud = st.slider("Injected transaction anomalies (%)", 0.0, 50.0, .5, .1)
                 loan = st.slider("Customers with a loan (%)", 0, 100, 30)
+            st.caption(f"Deployment limits: {limits['customers']:,} customers / {limits['transactions']:,} backing transactions / {limits['working_cells']:,} working cells.")
             st.caption("Customers sets portfolio size, not identical rows per table. Accounts: 1–2/customer. Loans: selected prevalence. Other customer domains: one/customer. Account domains: one/account. Branches: up to 10; securities: up to 25.")
             submitted = st.form_submit_button("Generate selected fields", type="primary", icon=":material/auto_awesome:", width="stretch", disabled=not ready)
         if submitted:
             cfg = Config(customers=int(customers), transactions_per_account=int(per_account), days=int(days), end_date=end_date.isoformat(), market=market, fraud_rate=fraud/100, loan_rate=loan/100, seed=int(seed), selected_fields=tuple(selected))
             try:
                 cfg.validate()
-                if estimate_cells(cfg, selected) > 8_000_000:
-                    raise ValueError("Reduce portfolio size: this selection exceeds the 8 million working-cell limit.")
+                if estimate_cells(cfg, selected) > limits["working_cells"]:
+                    raise ValueError(f"Reduce portfolio size: this selection exceeds the {limits['working_cells']:,} working-cell limit.")
                 with st.status("Generating your selected dataset…", expanded=True) as status:
                     st.write("Building fields and resolving relationships")
                     result = run_generation(cfg, mode, reference)

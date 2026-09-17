@@ -6,6 +6,7 @@ import pandas as pd
 from banksynth.catalog import FIELDS, BY_ID, PRIMARY_KEYS, resolve_fields
 from banksynth.engine import MARKETS, generate
 from banksynth.quality import evaluate
+from banksynth.limits import get_limits
 
 
 def estimate_cells(config, selected):
@@ -22,8 +23,8 @@ def estimate_cells(config, selected):
 def generate_selected(config, selected, customer_profile=None):
     config.validate()
     resolved = resolve_fields(selected)
-    if estimate_cells(config, selected) > 8_000_000:
-        raise ValueError("This selection exceeds the 8 million working-cell limit. Reduce customers or transactions per account.")
+    if estimate_cells(config, selected) > get_limits()["working_cells"]:
+        raise ValueError(f"This selection exceeds the {get_limits()['working_cells']:,} working-cell limit. Reduce customers or transactions per account.")
     baseline = generate(config, customer_profile)
     frames = {}
     currency = MARKETS[config.market]

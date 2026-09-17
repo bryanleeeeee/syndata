@@ -2,6 +2,10 @@
 
 A Python/Streamlit workspace for choosing and generating banking test data. Browse **500 curated fields across 20 domains**, select one or many, and export only the fields you need with supporting relational keys. Run locally or as a Cloudera AI/CML Application; no external API or database is required.
 
+## Publish on Streamlit Community Cloud
+
+See [STREAMLIT_CLOUD.md](STREAMLIT_CLOUD.md) for the exact settings for **datasynthetic.streamlit.app**. Deploy `streamlit_app.py` from branch `codex/field-studio` with Python 3.12 and no secrets. This public profile keeps all 500 fields, uses simulator-only generation, and applies smaller resource budgets.
+
 ## Quick start
 
 ```bash
