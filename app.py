@@ -16,5 +16,5 @@ with st.sidebar:
     st.space("large")
     st.badge("Community Cloud" if is_community() else "Server execution", color="green", icon=":material/lock:")
     st.caption("Synthetic data only. No reference uploads." if is_community() else "Your workspace. Your data.\n\nGeneration runs on this server without vendor API calls.")
-    st.caption("FORMA / v2.0")
+    st.caption("FORMA / v2.1")
 page.run()

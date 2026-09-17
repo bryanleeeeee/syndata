@@ -172,12 +172,14 @@ def generate_selected(config, selected, customer_profile=None):
     for table in dict.fromkeys(BY_ID[x].table for x in resolved):
         frame = materialize(table)
         output[table] = frame[[BY_ID[x].name for x in resolved if BY_ID[x].table == table]].copy()
-    checks = validate_selected(output, resolved)
+    from banksynth.schema import apply_formats
+    format_checks = apply_formats(output, config.field_options, selected)
+    checks = validate_selected(output, resolved) + format_checks
     if "transactions" in output or "accounts" in output:
         for check in evaluate(baseline):
             check = dict(check)
             check["check"] = "Backing portfolio / " + check["check"]
-            check["detail"] += "; evaluated before field projection"
+            check["detail"] += "; evaluated before field projection and output formatting"
             checks.append(check)
     return output, checks
 

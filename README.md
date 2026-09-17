@@ -4,7 +4,7 @@ A Python/Streamlit workspace for choosing and generating banking test data. Brow
 
 ## Publish on Streamlit Community Cloud
 
-See [STREAMLIT_CLOUD.md](STREAMLIT_CLOUD.md) for the exact settings for **datasynthetic.streamlit.app**. Deploy `streamlit_app.py` from branch `codex/field-studio` with Python 3.12 and no secrets. This public profile keeps all 500 fields, uses simulator-only generation, and applies smaller resource budgets.
+See [STREAMLIT_CLOUD.md](STREAMLIT_CLOUD.md) for the exact settings for **datasynt.streamlit.app**. Deploy `streamlit_app.py` from branch `codex/field-studio` with Python 3.12 and no secrets. This public profile keeps all 500 fields, uses simulator-only generation, and applies smaller resource budgets.
 
 ## Quick start
 
@@ -21,11 +21,19 @@ Open http://localhost:8501. The launcher honors `CDSW_APP_PORT` first, then `POR
 
 ## Field-first workflow
 
-1. **Select fields.** Search by name, field ID, domain or description. Filter by banking domain and data type. Use the searchable multiselect for one or multiple fields, add all matching fields, select all 500, or clear the selection. Selections persist across filters and page changes.
+1. **Select fields.** Type to see fuzzy search suggestions, including typo matches, and click to add. Tick Include in the full catalog, use the searchable multiselect, or add all matching fields. Filter by banking domain, original data type, or selected fields. Selections persist across filters and page changes.
 2. **Generate.** Choose portfolio size, currency, history window and seed. Advanced settings control loan prevalence and injected transaction anomalies. SDV customer profiles are optional.
 3. **Results.** Preview any output table, inspect validation, and download the dataset. The explorer supports search, pagination, field definitions and customer relationship drilldown.
 
-A starter selection of 12 fields is provided; it is editable and not a scenario preset. The review panel lists selected counts and every automatically included join key. You can download the full catalog as CSV, save a selection as JSON, or paste comma-separated/newline-separated field IDs or a JSON string array to restore a selection.
+A starter selection of 12 fields is provided; it is editable and not a scenario preset. The review panel lists selected counts and every automatically included join key. Download the full catalog as CSV or save selection and formats as JSON. Import accepts saved schema JSON, a JSON string array, or comma/newline-separated field IDs.
+
+### Editable field formats
+
+Double-click **Type**, **Length**, or **Decimals** in the catalog grid. Output types are text, integer, decimal, boolean, date and datetime. Length 0 means automatic; otherwise it specifies maximum text characters, integer digits excluding the sign, or total decimal digits including decimal places. Dates and booleans use fixed formats and length 0. Primary and foreign keys retain their original text format to preserve joins.
+
+Text limits shorten values and the validation report records how many were shortened. Numeric conversions reject value loss or overflow rather than rounding or clipping. For example, credit score fits integer length 3; converting a fractional balance to integer is rejected. Type conversion changes output representation, not the underlying banking model. Backing-ledger checks run before projection and formatting.
+
+Schema downloads, run history and dataset manifests preserve `field_options` alongside `selected_fields`. Field definitions include the configured output type, length and decimal scale. Reset field formats restores the catalog defaults.
 
 ### Catalog
 

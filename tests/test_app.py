@@ -95,3 +95,23 @@ def test_reference_table_only_explorer():
     at.switch_page("app_pages/explorer.py").run()
     assert not at.exception
     assert set(at.session_state["result"]["tables"]) == {"branches"}
+
+
+def test_fuzzy_suggestion_adds_field_and_persists_format():
+    at = AppTest.from_file(APP, default_timeout=30).run()
+    button(at, "Clear").click().run()
+    at.text_input(key="field_search").set_value("credti scor").run()
+    at.button(key="suggest_customers.credit_score").click().run()
+    assert at.session_state["chosen_fields"] == ["customers.credit_score"]
+    assert at.button(key="suggest_customers.credit_score").disabled
+    at.session_state["field_options"] = {"customers.credit_score": {"type": "text", "length": 3, "scale": 0}}
+    button(at, "Continue to generation").click().run()
+    at.number_input(key="customers").set_value(10)
+    button(at, "Generate selected fields").click().run()
+    assert not at.exception
+    result = at.session_state["result"]
+    assert result["tables"]["customers"].credit_score.str.len().max() == 3
+    at.switch_page("app_pages/history.py").run()
+    button(at, "Replay this configuration").click().run()
+    assert not at.exception
+    assert at.session_state["result"]["config"].field_options["customers.credit_score"]["length"] == 3

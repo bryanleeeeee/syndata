@@ -1,13 +1,13 @@
-# Publish datasynthetic.streamlit.app
+# Publish datasynt.streamlit.app
 
-The repository is ready for a Streamlit Community Cloud deployment.
+The app is deployed at [datasynt.streamlit.app](https://datasynt.streamlit.app/). The settings below also describe how to recreate the deployment.
 
 | Setting | Value |
 |---|---|
 | Repository | `bryanleeeeee/syndata` |
 | Branch | `codex/field-studio` |
 | Main file path | `streamlit_app.py` |
-| App URL / custom subdomain | `datasynthetic` |
+| App URL / custom subdomain | `datasynt` |
 | Python version (Advanced settings) | `3.12` |
 | Secrets | None |
 
@@ -15,10 +15,10 @@ The repository is ready for a Streamlit Community Cloud deployment.
 2. Select **Create app**, then **Yup, I have an app**.
 3. Enter the settings above. Use `streamlit_app.py`, not `launch_app.py`: Community Cloud starts Streamlit itself.
 4. Open **Advanced settings**, choose Python 3.12, and save. No API keys or secrets are required.
-5. Click **Deploy**. If the requested subdomain is available, the URL will be https://datasynthetic.streamlit.app/.
+5. Click **Deploy**. If the requested subdomain is available, the URL will be https://datasynt.streamlit.app/.
 6. Wait for the build, then generate a 10-customer dataset, prepare a ZIP, and verify the download. Check the deployment logs if the app fails to boot.
 
-The requested subdomain has not been reserved or verified as available. The host must accept it during deployment. Deployment also requires the account holder to complete sign-in and any required terms or repository-access approval.
+The existing deployment follows the configured repository branch. Creating a separate deployment requires the account holder to complete sign-in and any required terms or repository-access approval.
 
 ## Public profile
 

@@ -23,6 +23,7 @@ class Config:
     loan_rate: float = 0.30
     seed: int = 42
     selected_fields: tuple[str, ...] | None = None
+    field_options: dict | None = None
 
     def validate(self):
         limits = get_limits()
@@ -40,6 +41,9 @@ class Config:
         if self.selected_fields is not None:
             from banksynth.catalog import resolve_fields
             resolve_fields(self.selected_fields)
+        if self.field_options:
+            from banksynth.schema import validate_formats
+            validate_formats(self.field_options, self.selected_fields or ())
 
 
 def generate(config: Config, customer_profile: pd.DataFrame | None = None) -> dict[str, pd.DataFrame]:

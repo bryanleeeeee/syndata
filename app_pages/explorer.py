@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from banksynth.catalog import BY_ID, LABELS, PRIMARY_KEYS
+from banksynth.schema import default_format
 from banksynth.ui import current, result_caption, download
 
 st.caption("WORKSPACE / DATA EXPLORER")
@@ -49,7 +50,7 @@ else:
         query = st.text_input("Find a record", placeholder="Search any value or synthetic identifier", key=f"query_{name}")
     with right:
         limit = st.selectbox("Rows per page", [25, 50, 100, 250], index=1)
-    if "is_fraud" in frame and st.toggle("Show injected anomalies only"):
+    if "is_fraud" in frame and pd.api.types.is_bool_dtype(frame.is_fraud) and st.toggle("Show injected anomalies only"):
         frame = frame[frame.is_fraud]
     if query:
         mask = frame.astype(str).apply(lambda col: col.str.contains(query, case=False, regex=False)).any(axis=1)
@@ -64,6 +65,6 @@ else:
         st.dataframe(frame.iloc[(page-1)*limit:page*limit], hide_index=True, height=410)
     with st.expander("Field definitions & schema"):
         selected = set(r["selected_fields"])
-        st.dataframe(pd.DataFrame([{"Field": col, "Type": str(frame[col].dtype), "Source": "Selected" if f"{name}.{col}" in selected else "Supporting join key", "Description": BY_ID[f"{name}.{col}"].description} for col in frame]), hide_index=True)
+        st.dataframe(pd.DataFrame([{"Field": col, "Type": str(frame[col].dtype), "Length": (default_format(f"{name}.{col}") | (r["config"].field_options or {}).get(f"{name}.{col}", {}))["length"], "Source": "Selected" if f"{name}.{col}" in selected else "Supporting join key", "Description": BY_ID[f"{name}.{col}"].description} for col in frame]), hide_index=True)
     st.caption("The package contains all generated rows for the selected fields and supporting keys, independent of this filter.")
     download(r)
