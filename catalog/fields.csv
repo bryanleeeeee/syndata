@@ -1,0 +1,501 @@
+Field ID,Field,Domain,Type,Description
+customers.customer_id,Customer ID,Customer profiles,text,Unique fictional primary key; automatically included for this table.
+customers.display_name,Display name,Customer profiles,text,"Fictional display name; test-only values, not a real identity or payment credential."
+customers.age,Age,Customer profiles,integer,Synthetic age. Illustrative range: 18 to 85.
+customers.annual_income,Annual income,Customer profiles,decimal,Synthetic annual income. Illustrative range: 12000 to 500000.
+customers.credit_score,Credit score,Customer profiles,integer,Synthetic credit score. Illustrative range: 300 to 850.
+customers.segment,Segment,Customer profiles,text,"Illustrative values: Retail, Affluent, Private."
+customers.market,Market,Customer profiles,text,Synthetic market for customer profiles; illustrative test data.
+customers.currency,Currency,Customer profiles,text,Synthetic currency for customer profiles; illustrative test data.
+customers.date_of_birth,Date of birth,Customer profiles,date,Date of birth calculated from related values in this synthetic dataset.
+customers.email,Email,Customer profiles,text,"Fictional email; test-only values, not a real identity or payment credential."
+customers.phone_number,Phone number,Customer profiles,text,"Fictional phone number; test-only values, not a real identity or payment credential."
+customers.nationality,Nationality,Customer profiles,text,Synthetic nationality for customer profiles; illustrative test data.
+customers.residence_country,Residence country,Customer profiles,text,Synthetic residence country for customer profiles; illustrative test data.
+customers.city,City,Customer profiles,text,"Illustrative values: Test Central, Test North, Test West."
+customers.postal_code,Postal code,Customer profiles,text,"Fictional postal code; test-only values, not a real identity or payment credential."
+customers.employment_status,Employment status,Customer profiles,text,"Illustrative values: Employed, Self-employed, Retired, Student."
+customers.occupation,Occupation,Customer profiles,text,"Illustrative values: Engineer, Teacher, Analyst, Nurse, Designer."
+customers.employer_name,Employer name,Customer profiles,text,"Fictional employer name; test-only values, not a real identity or payment credential."
+customers.monthly_income,Monthly income,Customer profiles,decimal,Monthly income calculated from related values in this synthetic dataset.
+customers.customer_since,Customer since,Customer profiles,date,Synthetic customer since for customer profiles; illustrative test data.
+customers.preferred_language,Preferred language,Customer profiles,text,"Illustrative values: English, Mandarin, Malay, Tamil."
+customers.marital_status,Marital status,Customer profiles,text,"Illustrative values: Single, Married, Divorced."
+customers.dependants,Dependants,Customer profiles,integer,Synthetic dependants. Illustrative range: 0 to 5.
+customers.relationship_manager_id,Relationship manager ID,Customer profiles,text,"Fictional relationship manager id; test-only values, not a real identity or payment credential."
+customers.risk_rating,Risk rating,Customer profiles,text,"Illustrative values: Low, Medium, High."
+accounts.account_id,Account ID,Accounts & balances,text,Unique fictional primary key; automatically included for this table.
+accounts.customer_id,Customer ID,Accounts & balances,text,Join key to Customer profiles; a matching parent record is included.
+accounts.account_type,Account type,Accounts & balances,text,"Illustrative values: Current, Savings."
+accounts.currency,Currency,Accounts & balances,text,Synthetic currency for accounts & balances; illustrative test data.
+accounts.opened_at,Opened at,Accounts & balances,date,Synthetic opened at for accounts & balances; illustrative test data.
+accounts.opening_balance,Opening balance,Accounts & balances,decimal,Synthetic opening balance. Illustrative range: 100 to 100000.
+accounts.closing_balance,Closing balance,Accounts & balances,decimal,Synthetic closing balance. Illustrative range: 100 to 100000.
+accounts.account_status,Account status,Accounts & balances,text,"Illustrative values: Active, Dormant, Restricted."
+accounts.account_number,Account number,Accounts & balances,text,"Fictional account number; test-only values, not a real identity or payment credential."
+accounts.product_code,Product code,Accounts & balances,text,"Illustrative values: CUR-STD, SAV-PLUS, SAV-BASIC."
+accounts.branch_id,Branch ID,Accounts & balances,text,Join key to Branch network; a matching parent record is included.
+accounts.available_balance,Available balance,Accounts & balances,decimal,Available balance calculated from related values in this synthetic dataset.
+accounts.hold_amount,Hold amount,Accounts & balances,decimal,Synthetic hold amount. Illustrative range: 0 to 100.
+accounts.overdraft_limit,Overdraft limit,Accounts & balances,decimal,Synthetic overdraft limit. Illustrative range: 0 to 5000.
+accounts.interest_rate,Interest rate,Accounts & balances,decimal,Synthetic interest rate. Illustrative range: 0 to 5.
+accounts.accrued_interest,Accrued interest,Accounts & balances,decimal,Synthetic accrued interest. Illustrative range: 0 to 200.
+accounts.monthly_fee,Monthly fee,Accounts & balances,decimal,Synthetic monthly fee. Illustrative range: 0 to 25.
+accounts.statement_frequency,Statement frequency,Accounts & balances,text,"Illustrative values: Monthly, Quarterly."
+accounts.statement_delivery,Statement delivery,Accounts & balances,text,"Illustrative values: Electronic, Paper."
+accounts.last_activity_date,Last activity date,Accounts & balances,date,Last activity date calculated from related values in this synthetic dataset.
+accounts.joint_account,Joint account,Accounts & balances,boolean,Synthetic joint account for accounts & balances; illustrative test data.
+accounts.account_purpose,Account purpose,Accounts & balances,text,"Illustrative values: Daily spending, Savings, Salary."
+accounts.minimum_balance,Minimum balance,Accounts & balances,decimal,Synthetic minimum balance. Illustrative range: 0 to 500.
+accounts.debit_blocked,Debit blocked,Accounts & balances,boolean,Synthetic debit blocked for accounts & balances; illustrative test data.
+accounts.credit_blocked,Credit blocked,Accounts & balances,boolean,Synthetic credit blocked for accounts & balances; illustrative test data.
+transactions.transaction_id,Transaction ID,Transactions,text,Unique fictional primary key; automatically included for this table.
+transactions.account_id,Account ID,Transactions,text,Join key to Accounts & balances; a matching parent record is included.
+transactions.timestamp,Timestamp,Transactions,datetime,Synthetic timestamp for transactions; illustrative test data.
+transactions.direction,Direction,Transactions,text,"Illustrative values: Debit, Credit."
+transactions.amount,Amount,Transactions,decimal,Synthetic amount. Illustrative range: 0.01 to 10000.
+transactions.currency,Currency,Transactions,text,Synthetic currency for transactions; illustrative test data.
+transactions.category,Category,Transactions,text,"Illustrative values: Groceries, Dining, Shopping, Transport, Utilities, Transfer."
+transactions.channel,Channel,Transactions,text,"Illustrative values: Mobile, Card, Online, ATM, Branch."
+transactions.balance_after,Balance after,Transactions,decimal,Synthetic balance after. Illustrative range: 0 to 100000.
+transactions.is_fraud,Is fraud,Transactions,boolean,Synthetic is fraud for transactions; illustrative test data.
+transactions.anomaly_reason,Anomaly reason,Transactions,text,Anomaly reason calculated from related values in this synthetic dataset.
+transactions.transaction_status,Transaction status,Transactions,text,Illustrative values: Posted.
+transactions.merchant_name,Merchant name,Transactions,text,"Fictional merchant name; test-only values, not a real identity or payment credential."
+transactions.merchant_category_code,Merchant category code,Transactions,text,"Illustrative values: 5411, 5812, 5999, 4111, 4900."
+transactions.merchant_country,Merchant country,Transactions,text,Synthetic merchant country for transactions; illustrative test data.
+transactions.reference_number,Reference number,Transactions,text,"Fictional reference number; test-only values, not a real identity or payment credential."
+transactions.description,Description,Transactions,text,"Illustrative values: Synthetic retail payment, Synthetic transfer, Synthetic bill payment."
+transactions.counterparty_name,Counterparty name,Transactions,text,"Fictional counterparty name; test-only values, not a real identity or payment credential."
+transactions.counterparty_account,Counterparty account,Transactions,text,"Fictional counterparty account; test-only values, not a real identity or payment credential."
+transactions.device_id,Device ID,Transactions,text,"Fictional device id; test-only values, not a real identity or payment credential."
+transactions.ip_address,IP address,Transactions,text,"Fictional ip address; test-only values, not a real identity or payment credential."
+transactions.transaction_fee,Transaction fee,Transactions,decimal,Synthetic transaction fee. Illustrative range: 0 to 15.
+transactions.settlement_date,Settlement date,Transactions,date,Settlement date calculated from related values in this synthetic dataset.
+transactions.value_date,Value date,Transactions,date,Value date calculated from related values in this synthetic dataset.
+transactions.authentication_method,Authentication method,Transactions,text,"Illustrative values: Biometric, OTP, PIN, Password."
+loans.loan_id,Loan ID,Lending,text,Unique fictional primary key; automatically included for this table.
+loans.customer_id,Customer ID,Lending,text,Join key to Customer profiles; a matching parent record is included.
+loans.principal,Principal,Lending,decimal,Synthetic principal. Illustrative range: 1000 to 1000000.
+loans.currency,Currency,Lending,text,Synthetic currency for lending; illustrative test data.
+loans.term_months,Term months,Lending,integer,Synthetic term months. Illustrative range: 12 to 120.
+loans.apr_percent,APR percent,Lending,decimal,Synthetic apr percent. Illustrative range: 3 to 24.
+loans.monthly_payment,Monthly payment,Lending,decimal,Synthetic monthly payment. Illustrative range: 10 to 50000.
+loans.status,Status,Lending,text,"Illustrative values: Performing, Default."
+loans.loan_type,Loan type,Lending,text,"Illustrative values: Personal, Auto, Education."
+loans.origination_date,Origination date,Lending,date,Synthetic origination date for lending; illustrative test data.
+loans.maturity_date,Maturity date,Lending,date,Maturity date calculated from related values in this synthetic dataset.
+loans.outstanding_principal,Outstanding principal,Lending,decimal,Outstanding principal calculated from related values in this synthetic dataset.
+loans.amount_repaid,Amount repaid,Lending,decimal,Amount repaid calculated from related values in this synthetic dataset.
+loans.collateral_type,Collateral type,Lending,text,"Illustrative values: Unsecured, Vehicle, Deposit."
+loans.collateral_value,Collateral value,Lending,decimal,Synthetic collateral value. Illustrative range: 0 to 500000.
+loans.debt_to_income_ratio,Debt to income ratio,Lending,decimal,Synthetic debt to income ratio. Illustrative range: 0 to 1.
+loans.loan_to_value_ratio,Loan to value ratio,Lending,decimal,Synthetic loan to value ratio. Illustrative range: 0 to 1.
+loans.payment_frequency,Payment frequency,Lending,text,Illustrative values: Monthly.
+loans.days_past_due,Days past due,Lending,integer,Days past due calculated from related values in this synthetic dataset.
+loans.next_payment_date,Next payment date,Lending,date,Synthetic next payment date for lending; illustrative test data.
+loans.interest_type,Interest type,Lending,text,"Illustrative values: Fixed, Floating."
+loans.purpose,Purpose,Lending,text,"Illustrative values: Education, Vehicle purchase, Home improvement."
+loans.origination_fee,Origination fee,Lending,decimal,Synthetic origination fee. Illustrative range: 0 to 1000.
+loans.repayment_account_reference,Repayment account reference,Lending,text,"Fictional repayment account reference; test-only values, not a real identity or payment credential."
+loans.application_reference,Application reference,Lending,text,"Fictional application reference; test-only values, not a real identity or payment credential."
+cards.card_id,Card ID,Cards,text,Unique fictional primary key; automatically included for this table.
+cards.account_id,Account ID,Cards,text,Join key to Accounts & balances; a matching parent record is included.
+cards.card_reference,Card reference,Cards,text,"Fictional card reference; test-only values, not a real identity or payment credential."
+cards.cardholder_name,Cardholder name,Cards,text,"Fictional cardholder name; test-only values, not a real identity or payment credential."
+cards.card_type,Card type,Cards,text,"Illustrative values: Debit, Credit, Prepaid."
+cards.network,Network,Cards,text,"Illustrative values: Visa, Mastercard, Amex."
+cards.card_status,Card status,Cards,text,"Illustrative values: Active, Frozen, Expired."
+cards.issue_date,Issue date,Cards,date,Synthetic issue date for cards; illustrative test data.
+cards.expiry_date,Expiry date,Cards,date,Synthetic expiry date for cards; illustrative test data.
+cards.credit_limit,Credit limit,Cards,decimal,Synthetic credit limit. Illustrative range: 1000 to 50000.
+cards.current_balance,Current balance,Cards,decimal,Synthetic current balance. Illustrative range: 0 to 1000.
+cards.available_credit,Available credit,Cards,decimal,Available credit calculated from related values in this synthetic dataset.
+cards.minimum_payment,Minimum payment,Cards,decimal,Synthetic minimum payment. Illustrative range: 0 to 50.
+cards.payment_due_date,Payment due date,Cards,date,Synthetic payment due date for cards; illustrative test data.
+cards.billing_cycle_day,Billing cycle day,Cards,integer,Synthetic billing cycle day. Illustrative range: 1 to 28.
+cards.contactless_enabled,Contactless enabled,Cards,boolean,Synthetic contactless enabled for cards; illustrative test data.
+cards.online_payments_enabled,Online payments enabled,Cards,boolean,Synthetic online payments enabled for cards; illustrative test data.
+cards.international_enabled,International enabled,Cards,boolean,Synthetic international enabled for cards; illustrative test data.
+cards.cash_advance_limit,Cash advance limit,Cards,decimal,Synthetic cash advance limit. Illustrative range: 0 to 1000.
+cards.cash_advance_apr,Cash advance apr,Cards,decimal,Synthetic cash advance apr. Illustrative range: 10 to 35.
+cards.purchase_apr,Purchase apr,Cards,decimal,Synthetic purchase apr. Illustrative range: 5 to 30.
+cards.annual_fee,Annual fee,Cards,decimal,Synthetic annual fee. Illustrative range: 0 to 500.
+cards.reward_points,Reward points,Cards,integer,Synthetic reward points. Illustrative range: 0 to 100000.
+cards.last_four_digits,Last four digits,Cards,text,"Fictional last four digits; test-only values, not a real identity or payment credential."
+cards.replacement_count,Replacement count,Cards,integer,Synthetic replacement count. Illustrative range: 0 to 4.
+payments.payment_id,Payment ID,Payments,text,Unique fictional primary key; automatically included for this table.
+payments.account_id,Account ID,Payments,text,Join key to Accounts & balances; a matching parent record is included.
+payments.payment_reference,Payment reference,Payments,text,"Fictional payment reference; test-only values, not a real identity or payment credential."
+payments.payment_type,Payment type,Payments,text,"Illustrative values: Domestic, International, Bill payment."
+payments.payment_rail,Payment rail,Payments,text,"Illustrative values: FAST, ACH, RTGS, SWIFT."
+payments.amount,Amount,Payments,decimal,Synthetic amount. Illustrative range: 1 to 100000.
+payments.currency,Currency,Payments,text,Synthetic currency for payments; illustrative test data.
+payments.payment_status,Payment status,Payments,text,"Illustrative values: Pending, Completed, Rejected."
+payments.initiated_at,Initiated at,Payments,datetime,Synthetic initiated at for payments; illustrative test data.
+payments.execution_date,Execution date,Payments,date,Synthetic execution date for payments; illustrative test data.
+payments.beneficiary_name,Beneficiary name,Payments,text,"Fictional beneficiary name; test-only values, not a real identity or payment credential."
+payments.beneficiary_account,Beneficiary account,Payments,text,"Fictional beneficiary account; test-only values, not a real identity or payment credential."
+payments.beneficiary_bank_name,Beneficiary bank name,Payments,text,"Fictional beneficiary bank name; test-only values, not a real identity or payment credential."
+payments.beneficiary_bank_code,Beneficiary bank code,Payments,text,"Fictional beneficiary bank code; test-only values, not a real identity or payment credential."
+payments.beneficiary_country,Beneficiary country,Payments,text,Synthetic beneficiary country for payments; illustrative test data.
+payments.purpose_code,Purpose code,Payments,text,"Illustrative values: SALA, SUPP, OTHR."
+payments.remittance_information,Remittance information,Payments,text,"Illustrative values: Synthetic invoice settlement, Synthetic salary, Synthetic transfer."
+payments.charge_bearer,Charge bearer,Payments,text,"Illustrative values: SHA, OUR, BEN."
+payments.fee_amount,Fee amount,Payments,decimal,Synthetic fee amount. Illustrative range: 0 to 50.
+payments.exchange_rate,Exchange rate,Payments,decimal,Synthetic exchange rate. Illustrative range: 0.5 to 2.
+payments.instructed_amount,Instructed amount,Payments,decimal,Instructed amount calculated from related values in this synthetic dataset.
+payments.priority,Priority,Payments,text,"Illustrative values: Normal, Urgent."
+payments.recurring,Recurring,Payments,boolean,Synthetic recurring for payments; illustrative test data.
+payments.recurrence_frequency,Recurrence frequency,Payments,text,"Illustrative values: None, Weekly, Monthly."
+payments.approval_status,Approval status,Payments,text,"Illustrative values: Pending, Approved, Declined."
+beneficiaries.beneficiary_id,Beneficiary ID,Beneficiaries,text,Unique fictional primary key; automatically included for this table.
+beneficiaries.customer_id,Customer ID,Beneficiaries,text,Join key to Customer profiles; a matching parent record is included.
+beneficiaries.beneficiary_name,Beneficiary name,Beneficiaries,text,"Fictional beneficiary name; test-only values, not a real identity or payment credential."
+beneficiaries.nickname,Nickname,Beneficiaries,text,"Illustrative values: Test household, Test supplier, Test savings."
+beneficiaries.beneficiary_type,Beneficiary type,Beneficiaries,text,"Illustrative values: Individual, Business."
+beneficiaries.account_reference,Account reference,Beneficiaries,text,"Fictional account reference; test-only values, not a real identity or payment credential."
+beneficiaries.bank_name,Bank name,Beneficiaries,text,"Fictional bank name; test-only values, not a real identity or payment credential."
+beneficiaries.bank_identifier,Bank IDentifier,Beneficiaries,text,"Fictional bank identifier; test-only values, not a real identity or payment credential."
+beneficiaries.bank_country,Bank country,Beneficiaries,text,Synthetic bank country for beneficiaries; illustrative test data.
+beneficiaries.bank_city,Bank city,Beneficiaries,text,"Illustrative values: Test Central, Test North, Test West."
+beneficiaries.bank_address,Bank address,Beneficiaries,text,"Fictional bank address; test-only values, not a real identity or payment credential."
+beneficiaries.beneficiary_address,Beneficiary address,Beneficiaries,text,"Fictional beneficiary address; test-only values, not a real identity or payment credential."
+beneficiaries.beneficiary_country,Beneficiary country,Beneficiaries,text,Synthetic beneficiary country for beneficiaries; illustrative test data.
+beneficiaries.currency,Currency,Beneficiaries,text,Synthetic currency for beneficiaries; illustrative test data.
+beneficiaries.created_date,Created date,Beneficiaries,date,Synthetic created date for beneficiaries; illustrative test data.
+beneficiaries.verification_status,Verification status,Beneficiaries,text,"Illustrative values: Pending, Verified, Rejected."
+beneficiaries.verification_method,Verification method,Beneficiaries,text,"Illustrative values: Micro-deposit, Document, Bank confirmation."
+beneficiaries.trusted_beneficiary,Trusted beneficiary,Beneficiaries,boolean,Synthetic trusted beneficiary for beneficiaries; illustrative test data.
+beneficiaries.transfer_limit,Transfer limit,Beneficiaries,decimal,Synthetic transfer limit. Illustrative range: 100 to 100000.
+beneficiaries.daily_limit,Daily limit,Beneficiaries,decimal,Synthetic daily limit. Illustrative range: 100 to 200000.
+beneficiaries.relationship,Relationship,Beneficiaries,text,"Illustrative values: Self, Family, Supplier, Other."
+beneficiaries.last_used_date,Last used date,Beneficiaries,date,Synthetic last used date for beneficiaries; illustrative test data.
+beneficiaries.payment_count,Payment count,Beneficiaries,integer,Synthetic payment count. Illustrative range: 0 to 1000.
+beneficiaries.favorite,Favorite,Beneficiaries,boolean,Synthetic favorite for beneficiaries; illustrative test data.
+beneficiaries.enabled,Enabled,Beneficiaries,boolean,Synthetic enabled for beneficiaries; illustrative test data.
+deposits.deposit_id,Deposit ID,Term deposits,text,Unique fictional primary key; automatically included for this table.
+deposits.account_id,Account ID,Term deposits,text,Join key to Accounts & balances; a matching parent record is included.
+deposits.deposit_type,Deposit type,Term deposits,text,"Illustrative values: Term, Fixed, Notice."
+deposits.principal,Principal,Term deposits,decimal,Synthetic principal. Illustrative range: 1000 to 1000000.
+deposits.currency,Currency,Term deposits,text,Synthetic currency for term deposits; illustrative test data.
+deposits.interest_rate,Interest rate,Term deposits,decimal,Synthetic interest rate. Illustrative range: 0.1 to 6.
+deposits.term_months,Term months,Term deposits,integer,Synthetic term months. Illustrative range: 1 to 60.
+deposits.start_date,Start date,Term deposits,date,Synthetic start date for term deposits; illustrative test data.
+deposits.maturity_date,Maturity date,Term deposits,date,Maturity date calculated from related values in this synthetic dataset.
+deposits.maturity_amount,Maturity amount,Term deposits,decimal,Maturity amount calculated from related values in this synthetic dataset.
+deposits.interest_amount,Interest amount,Term deposits,decimal,Interest amount calculated from related values in this synthetic dataset.
+deposits.interest_frequency,Interest frequency,Term deposits,text,Illustrative values: At maturity.
+deposits.day_count_basis,Day count basis,Term deposits,text,Illustrative values: 30/360.
+deposits.auto_renewal,Auto renewal,Term deposits,boolean,Synthetic auto renewal for term deposits; illustrative test data.
+deposits.renewal_instruction,Renewal instruction,Term deposits,text,"Illustrative values: Principal only, Principal and interest, Do not renew."
+deposits.funding_reference,Funding reference,Term deposits,text,"Fictional funding reference; test-only values, not a real identity or payment credential."
+deposits.payout_reference,Payout reference,Term deposits,text,"Fictional payout reference; test-only values, not a real identity or payment credential."
+deposits.early_withdrawal_allowed,Early withdrawal allowed,Term deposits,boolean,Synthetic early withdrawal allowed for term deposits; illustrative test data.
+deposits.early_withdrawal_penalty_rate,Early withdrawal penalty rate,Term deposits,decimal,Synthetic early withdrawal penalty rate. Illustrative range: 0 to 2.
+deposits.minimum_placement,Minimum placement,Term deposits,decimal,Synthetic minimum placement. Illustrative range: 100 to 1000.
+deposits.deposit_status,Deposit status,Term deposits,text,"Illustrative values: Active, Matured, Closed."
+deposits.product_code,Product code,Term deposits,text,"Illustrative values: TD-01, FD-06, FD-12."
+deposits.campaign_code,Campaign code,Term deposits,text,"Fictional campaign code; test-only values, not a real identity or payment credential."
+deposits.accrued_interest,Accrued interest,Term deposits,decimal,Synthetic accrued interest. Illustrative range: 0 to 100.
+deposits.withholding_tax_rate,Withholding tax rate,Term deposits,decimal,Synthetic withholding tax rate. Illustrative range: 0 to 30.
+investments.investment_id,Investment ID,Investment holdings,text,Unique fictional primary key; automatically included for this table.
+investments.customer_id,Customer ID,Investment holdings,text,Join key to Customer profiles; a matching parent record is included.
+investments.security_id,Security ID,Investment holdings,text,Join key to Security master; a matching parent record is included.
+investments.portfolio_name,Portfolio name,Investment holdings,text,"Illustrative values: Test growth, Test income, Test balanced."
+investments.asset_class,Asset class,Investment holdings,text,"Illustrative values: Equity, Bond, Fund, Cash."
+investments.quantity,Quantity,Investment holdings,decimal,Synthetic quantity. Illustrative range: 1 to 10000.
+investments.unit_cost,Unit cost,Investment holdings,decimal,Synthetic unit cost. Illustrative range: 1 to 1000.
+investments.market_price,Market price,Investment holdings,decimal,Synthetic market price. Illustrative range: 1 to 1000.
+investments.cost_basis,Cost basis,Investment holdings,decimal,Cost basis calculated from related values in this synthetic dataset.
+investments.market_value,Market value,Investment holdings,decimal,Market value calculated from related values in this synthetic dataset.
+investments.unrealized_gain,Unrealized gain,Investment holdings,decimal,Unrealized gain calculated from related values in this synthetic dataset.
+investments.currency,Currency,Investment holdings,text,Synthetic currency for investment holdings; illustrative test data.
+investments.purchase_date,Purchase date,Investment holdings,date,Synthetic purchase date for investment holdings; illustrative test data.
+investments.valuation_date,Valuation date,Investment holdings,date,Synthetic valuation date for investment holdings; illustrative test data.
+investments.investment_objective,Investment objective,Investment holdings,text,"Illustrative values: Growth, Income, Preservation."
+investments.risk_profile,Risk profile,Investment holdings,text,"Illustrative values: Conservative, Balanced, Aggressive."
+investments.management_fee_rate,Management fee rate,Investment holdings,decimal,Synthetic management fee rate. Illustrative range: 0 to 2.
+investments.custody_fee_rate,Custody fee rate,Investment holdings,decimal,Synthetic custody fee rate. Illustrative range: 0 to 1.
+investments.dividend_income,Dividend income,Investment holdings,decimal,Synthetic dividend income. Illustrative range: 0 to 10000.
+investments.coupon_income,Coupon income,Investment holdings,decimal,Synthetic coupon income. Illustrative range: 0 to 10000.
+investments.investment_status,Investment status,Investment holdings,text,"Illustrative values: Open, Closed."
+investments.advisor_reference,Advisor reference,Investment holdings,text,"Fictional advisor reference; test-only values, not a real identity or payment credential."
+investments.suitability_status,Suitability status,Investment holdings,text,"Illustrative values: Suitable, Review required."
+investments.reinvest_distributions,Reinvest distributions,Investment holdings,boolean,Synthetic reinvest distributions for investment holdings; illustrative test data.
+investments.settlement_reference,Settlement reference,Investment holdings,text,"Fictional settlement reference; test-only values, not a real identity or payment credential."
+securities.security_id,Security ID,Security master,text,Unique fictional primary key; automatically included for this table.
+securities.security_name,Security name,Security master,text,"Fictional security name; test-only values, not a real identity or payment credential."
+securities.instrument_reference,Instrument reference,Security master,text,"Fictional instrument reference; test-only values, not a real identity or payment credential."
+securities.ticker,Ticker,Security master,text,"Fictional ticker; test-only values, not a real identity or payment credential."
+securities.asset_class,Asset class,Security master,text,"Illustrative values: Equity, Bond, Fund, Cash."
+securities.exchange,Exchange,Security master,text,"Illustrative values: TEST-SGX, TEST-LSE, TEST-NYSE."
+securities.currency,Currency,Security master,text,Synthetic currency for security master; illustrative test data.
+securities.issuer_name,Issuer name,Security master,text,"Fictional issuer name; test-only values, not a real identity or payment credential."
+securities.issuer_country,Issuer country,Security master,text,Synthetic issuer country for security master; illustrative test data.
+securities.industry_sector,Industry sector,Security master,text,"Illustrative values: Financials, Technology, Healthcare, Industrials."
+securities.instrument_type,Instrument type,Security master,text,"Illustrative values: Common stock, Government bond, ETF."
+securities.issue_date,Issue date,Security master,date,Synthetic issue date for security master; illustrative test data.
+securities.maturity_date,Maturity date,Security master,date,Synthetic maturity date for security master; illustrative test data.
+securities.coupon_rate,Coupon rate,Security master,decimal,Synthetic coupon rate. Illustrative range: 0 to 8.
+securities.coupon_frequency,Coupon frequency,Security master,text,"Illustrative values: Annual, Semiannual, Quarterly, None."
+securities.face_value,Face value,Security master,decimal,Synthetic face value. Illustrative range: 100 to 1000.
+securities.price,Price,Security master,decimal,Synthetic price. Illustrative range: 1 to 1000.
+securities.price_date,Price date,Security master,date,Synthetic price date for security master; illustrative test data.
+securities.lot_size,Lot size,Security master,integer,Synthetic lot size. Illustrative range: 1 to 100.
+securities.credit_rating,Credit rating,Security master,text,"Illustrative values: AAA, AA, A, BBB, BB, Unrated."
+securities.risk_level,Risk level,Security master,text,"Illustrative values: Low, Medium, High."
+securities.tradable,Tradable,Security master,boolean,Synthetic tradable for security master; illustrative test data.
+securities.country_of_risk,Country of risk,Security master,text,Synthetic country of risk for security master; illustrative test data.
+securities.listing_status,Listing status,Security master,text,"Illustrative values: Listed, Suspended, Delisted."
+securities.settlement_cycle,Settlement cycle,Security master,text,"Illustrative values: T+1, T+2."
+fx_trades.fx_trade_id,Fx trade ID,Foreign exchange,text,Unique fictional primary key; automatically included for this table.
+fx_trades.account_id,Account ID,Foreign exchange,text,Join key to Accounts & balances; a matching parent record is included.
+fx_trades.trade_reference,Trade reference,Foreign exchange,text,"Fictional trade reference; test-only values, not a real identity or payment credential."
+fx_trades.trade_date,Trade date,Foreign exchange,date,Synthetic trade date for foreign exchange; illustrative test data.
+fx_trades.value_date,Value date,Foreign exchange,date,Synthetic value date for foreign exchange; illustrative test data.
+fx_trades.currency_pair,Currency pair,Foreign exchange,text,Currency pair calculated from related values in this synthetic dataset.
+fx_trades.buy_currency,Buy currency,Foreign exchange,text,Synthetic buy currency for foreign exchange; illustrative test data.
+fx_trades.sell_currency,Sell currency,Foreign exchange,text,Sell currency calculated from related values in this synthetic dataset.
+fx_trades.buy_amount,Buy amount,Foreign exchange,decimal,Synthetic buy amount. Illustrative range: 100 to 100000.
+fx_trades.sell_amount,Sell amount,Foreign exchange,decimal,Sell amount calculated from related values in this synthetic dataset.
+fx_trades.exchange_rate,Exchange rate,Foreign exchange,decimal,Synthetic exchange rate. Illustrative range: 0.5 to 2.
+fx_trades.spot_rate,Spot rate,Foreign exchange,decimal,Synthetic spot rate. Illustrative range: 0.5 to 2.
+fx_trades.forward_points,Forward points,Foreign exchange,decimal,Synthetic forward points. Illustrative range: -0.05 to 0.05.
+fx_trades.trade_type,Trade type,Foreign exchange,text,"Illustrative values: Spot, Forward, Swap."
+fx_trades.direction,Direction,Foreign exchange,text,"Illustrative values: Buy, Sell."
+fx_trades.trade_status,Trade status,Foreign exchange,text,"Illustrative values: Booked, Settled, Cancelled."
+fx_trades.counterparty_name,Counterparty name,Foreign exchange,text,"Fictional counterparty name; test-only values, not a real identity or payment credential."
+fx_trades.counterparty_reference,Counterparty reference,Foreign exchange,text,"Fictional counterparty reference; test-only values, not a real identity or payment credential."
+fx_trades.dealer_reference,Dealer reference,Foreign exchange,text,"Fictional dealer reference; test-only values, not a real identity or payment credential."
+fx_trades.trading_channel,Trading channel,Foreign exchange,text,"Illustrative values: Online, Voice, Branch."
+fx_trades.settlement_instruction,Settlement instruction,Foreign exchange,text,"Fictional settlement instruction; test-only values, not a real identity or payment credential."
+fx_trades.confirmation_reference,Confirmation reference,Foreign exchange,text,"Fictional confirmation reference; test-only values, not a real identity or payment credential."
+fx_trades.commission,Commission,Foreign exchange,decimal,Synthetic commission. Illustrative range: 0 to 100.
+fx_trades.margin_percent,Margin percent,Foreign exchange,decimal,Synthetic margin percent. Illustrative range: 0 to 10.
+fx_trades.purpose,Purpose,Foreign exchange,text,"Illustrative values: Hedging, Travel, Trade settlement."
+mortgages.mortgage_id,Mortgage ID,Mortgages,text,Unique fictional primary key; automatically included for this table.
+mortgages.customer_id,Customer ID,Mortgages,text,Join key to Customer profiles; a matching parent record is included.
+mortgages.property_reference,Property reference,Mortgages,text,"Fictional property reference; test-only values, not a real identity or payment credential."
+mortgages.property_type,Property type,Mortgages,text,"Illustrative values: Apartment, House, Condominium."
+mortgages.property_address,Property address,Mortgages,text,"Fictional property address; test-only values, not a real identity or payment credential."
+mortgages.property_value,Property value,Mortgages,decimal,Synthetic property value. Illustrative range: 200000 to 3000000.
+mortgages.principal,Principal,Mortgages,decimal,Synthetic principal. Illustrative range: 50000 to 200000.
+mortgages.outstanding_balance,Outstanding balance,Mortgages,decimal,Outstanding balance calculated from related values in this synthetic dataset.
+mortgages.currency,Currency,Mortgages,text,Synthetic currency for mortgages; illustrative test data.
+mortgages.interest_rate,Interest rate,Mortgages,decimal,Synthetic interest rate. Illustrative range: 1 to 8.
+mortgages.rate_type,Rate type,Mortgages,text,"Illustrative values: Fixed, Floating, Hybrid."
+mortgages.term_months,Term months,Mortgages,integer,Synthetic term months. Illustrative range: 120 to 360.
+mortgages.monthly_payment,Monthly payment,Mortgages,decimal,Monthly payment calculated from related values in this synthetic dataset.
+mortgages.origination_date,Origination date,Mortgages,date,Synthetic origination date for mortgages; illustrative test data.
+mortgages.maturity_date,Maturity date,Mortgages,date,Maturity date calculated from related values in this synthetic dataset.
+mortgages.loan_to_value_ratio,Loan to value ratio,Mortgages,decimal,Loan to value ratio calculated from related values in this synthetic dataset.
+mortgages.occupancy,Occupancy,Mortgages,text,"Illustrative values: Owner occupied, Investment, Second home."
+mortgages.repayment_type,Repayment type,Mortgages,text,Illustrative values: Principal and interest.
+mortgages.valuation_date,Valuation date,Mortgages,date,Synthetic valuation date for mortgages; illustrative test data.
+mortgages.insurance_required,Insurance required,Mortgages,boolean,Synthetic insurance required for mortgages; illustrative test data.
+mortgages.escrow_balance,Escrow balance,Mortgages,decimal,Synthetic escrow balance. Illustrative range: 0 to 10000.
+mortgages.payment_day,Payment day,Mortgages,integer,Synthetic payment day. Illustrative range: 1 to 28.
+mortgages.days_past_due,Days past due,Mortgages,integer,Synthetic days past due. Illustrative range: 0 to 180.
+mortgages.mortgage_status,Mortgage status,Mortgages,text,"Illustrative values: Performing, Delinquent, Closed."
+mortgages.lien_position,Lien position,Mortgages,integer,Synthetic lien position. Illustrative range: 1 to 2.
+businesses.business_id,Business ID,Business banking,text,Unique fictional primary key; automatically included for this table.
+businesses.customer_id,Customer ID,Business banking,text,Join key to Customer profiles; a matching parent record is included.
+businesses.legal_name,Legal name,Business banking,text,"Fictional legal name; test-only values, not a real identity or payment credential."
+businesses.trading_name,Trading name,Business banking,text,"Fictional trading name; test-only values, not a real identity or payment credential."
+businesses.registration_reference,Registration reference,Business banking,text,"Fictional registration reference; test-only values, not a real identity or payment credential."
+businesses.incorporation_date,Incorporation date,Business banking,date,Synthetic incorporation date for business banking; illustrative test data.
+businesses.incorporation_country,Incorporation country,Business banking,text,Synthetic incorporation country for business banking; illustrative test data.
+businesses.legal_structure,Legal structure,Business banking,text,"Illustrative values: Limited company, Partnership, Sole proprietor."
+businesses.industry_code,Industry code,Business banking,text,"Illustrative values: TEST-RET, TEST-TEC, TEST-MFG."
+businesses.industry_description,Industry description,Business banking,text,"Illustrative values: Retail, Technology, Manufacturing."
+businesses.annual_turnover,Annual turnover,Business banking,decimal,Synthetic annual turnover. Illustrative range: 100000 to 10000000.
+businesses.employee_count,Employee count,Business banking,integer,Synthetic employee count. Illustrative range: 1 to 5000.
+businesses.business_size,Business size,Business banking,text,"Illustrative values: Micro, Small, Medium, Large."
+businesses.registered_address,Registered address,Business banking,text,"Fictional registered address; test-only values, not a real identity or payment credential."
+businesses.operating_address,Operating address,Business banking,text,"Fictional operating address; test-only values, not a real identity or payment credential."
+businesses.contact_email,Contact email,Business banking,text,"Fictional contact email; test-only values, not a real identity or payment credential."
+businesses.contact_phone,Contact phone,Business banking,text,"Fictional contact phone; test-only values, not a real identity or payment credential."
+businesses.website,Website,Business banking,text,"Fictional website; test-only values, not a real identity or payment credential."
+businesses.tax_reference,Tax reference,Business banking,text,"Fictional tax reference; test-only values, not a real identity or payment credential."
+businesses.ownership_type,Ownership type,Business banking,text,"Illustrative values: Private, Public, State owned."
+businesses.beneficial_owner_count,Beneficial owner count,Business banking,integer,Synthetic beneficial owner count. Illustrative range: 1 to 10.
+businesses.listing_status,Listing status,Business banking,text,"Illustrative values: Listed, Unlisted."
+businesses.financial_year_end,Financial year end,Business banking,text,"Illustrative values: 12-31, 03-31, 06-30, 09-30."
+businesses.banking_relationship_years,Banking relationship years,Business banking,integer,Synthetic banking relationship years. Illustrative range: 0 to 30.
+businesses.business_status,Business status,Business banking,text,"Illustrative values: Active, Inactive, Dissolved."
+trade_finance.trade_id,Trade ID,Trade finance,text,Unique fictional primary key; automatically included for this table.
+trade_finance.business_id,Business ID,Trade finance,text,Join key to Business banking; a matching parent record is included.
+trade_finance.instrument_type,Instrument type,Trade finance,text,"Illustrative values: Letter of credit, Guarantee, Documentary collection."
+trade_finance.instrument_reference,Instrument reference,Trade finance,text,"Fictional instrument reference; test-only values, not a real identity or payment credential."
+trade_finance.currency,Currency,Trade finance,text,Synthetic currency for trade finance; illustrative test data.
+trade_finance.face_amount,Face amount,Trade finance,decimal,Synthetic face amount. Illustrative range: 10000 to 1000000.
+trade_finance.issue_date,Issue date,Trade finance,date,Synthetic issue date for trade finance; illustrative test data.
+trade_finance.expiry_date,Expiry date,Trade finance,date,Synthetic expiry date for trade finance; illustrative test data.
+trade_finance.applicant_name,Applicant name,Trade finance,text,"Fictional applicant name; test-only values, not a real identity or payment credential."
+trade_finance.beneficiary_name,Beneficiary name,Trade finance,text,"Fictional beneficiary name; test-only values, not a real identity or payment credential."
+trade_finance.issuing_bank,Issuing bank,Trade finance,text,"Fictional issuing bank; test-only values, not a real identity or payment credential."
+trade_finance.advising_bank,Advising bank,Trade finance,text,"Fictional advising bank; test-only values, not a real identity or payment credential."
+trade_finance.confirming_bank,Confirming bank,Trade finance,text,"Fictional confirming bank; test-only values, not a real identity or payment credential."
+trade_finance.shipment_country,Shipment country,Trade finance,text,Synthetic shipment country for trade finance; illustrative test data.
+trade_finance.destination_country,Destination country,Trade finance,text,Synthetic destination country for trade finance; illustrative test data.
+trade_finance.goods_description,Goods description,Trade finance,text,"Illustrative values: Synthetic electronics, Synthetic textiles, Synthetic equipment."
+trade_finance.incoterm,Incoterm,Trade finance,text,"Illustrative values: FOB, CIF, DAP, EXW."
+trade_finance.latest_shipment_date,Latest shipment date,Trade finance,date,Synthetic latest shipment date for trade finance; illustrative test data.
+trade_finance.tenor_days,Tenor days,Trade finance,integer,Synthetic tenor days. Illustrative range: 30 to 180.
+trade_finance.available_amount,Available amount,Trade finance,decimal,Available amount calculated from related values in this synthetic dataset.
+trade_finance.utilized_amount,Utilized amount,Trade finance,decimal,Utilized amount calculated from related values in this synthetic dataset.
+trade_finance.margin_percent,Margin percent,Trade finance,decimal,Synthetic margin percent. Illustrative range: 0 to 30.
+trade_finance.commission_rate,Commission rate,Trade finance,decimal,Synthetic commission rate. Illustrative range: 0 to 3.
+trade_finance.document_status,Document status,Trade finance,text,"Illustrative values: Pending, Received, Discrepant, Accepted."
+trade_finance.instrument_status,Instrument status,Trade finance,text,"Illustrative values: Issued, Amended, Expired, Closed."
+kyc.kyc_id,Kyc ID,KYC & onboarding,text,Unique fictional primary key; automatically included for this table.
+kyc.customer_id,Customer ID,KYC & onboarding,text,Join key to Customer profiles; a matching parent record is included.
+kyc.review_reference,Review reference,KYC & onboarding,text,"Fictional review reference; test-only values, not a real identity or payment credential."
+kyc.verification_status,Verification status,KYC & onboarding,text,"Illustrative values: Pending, Verified, Needs review."
+kyc.verification_date,Verification date,KYC & onboarding,date,Synthetic verification date for kyc & onboarding; illustrative test data.
+kyc.next_review_date,Next review date,KYC & onboarding,date,Synthetic next review date for kyc & onboarding; illustrative test data.
+kyc.document_type,Document type,KYC & onboarding,text,"Illustrative values: Test passport, Test national ID, Test permit."
+kyc.document_reference,Document reference,KYC & onboarding,text,"Fictional document reference; test-only values, not a real identity or payment credential."
+kyc.document_issue_date,Document issue date,KYC & onboarding,date,Synthetic document issue date for kyc & onboarding; illustrative test data.
+kyc.document_expiry_date,Document expiry date,KYC & onboarding,date,Synthetic document expiry date for kyc & onboarding; illustrative test data.
+kyc.issuing_country,Issuing country,KYC & onboarding,text,Synthetic issuing country for kyc & onboarding; illustrative test data.
+kyc.address_verified,Address verified,KYC & onboarding,boolean,Synthetic address verified for kyc & onboarding; illustrative test data.
+kyc.identity_verified,Identity verified,KYC & onboarding,boolean,Synthetic identity verified for kyc & onboarding; illustrative test data.
+kyc.source_of_funds,Source of funds,KYC & onboarding,text,"Illustrative values: Salary, Business income, Savings, Inheritance."
+kyc.source_of_wealth,Source of wealth,KYC & onboarding,text,"Illustrative values: Employment, Business, Investment, Inheritance."
+kyc.expected_monthly_volume,Expected monthly volume,KYC & onboarding,decimal,Synthetic expected monthly volume. Illustrative range: 100 to 100000.
+kyc.expected_transaction_count,Expected transaction count,KYC & onboarding,integer,Synthetic expected transaction count. Illustrative range: 1 to 500.
+kyc.politically_exposed,Politically exposed,KYC & onboarding,boolean,Synthetic politically exposed for kyc & onboarding; illustrative test data.
+kyc.sanctions_screening_result,Sanctions screening result,KYC & onboarding,text,"Illustrative values: Clear, Potential match, Review required."
+kyc.adverse_media_result,Adverse media result,KYC & onboarding,text,"Illustrative values: Clear, Potential match."
+kyc.risk_score,Risk score,KYC & onboarding,integer,Synthetic risk score. Illustrative range: 0 to 100.
+kyc.risk_rating,Risk rating,KYC & onboarding,text,"Illustrative values: Low, Medium, High."
+kyc.enhanced_due_diligence,Enhanced due diligence,KYC & onboarding,boolean,Synthetic enhanced due diligence for kyc & onboarding; illustrative test data.
+kyc.reviewer_reference,Reviewer reference,KYC & onboarding,text,"Fictional reviewer reference; test-only values, not a real identity or payment credential."
+kyc.onboarding_channel,Onboarding channel,KYC & onboarding,text,"Illustrative values: Branch, Mobile, Online, Partner."
+aml_alerts.alert_id,Alert ID,AML monitoring,text,Unique fictional primary key; automatically included for this table.
+aml_alerts.transaction_id,Transaction ID,AML monitoring,text,Join key to Transactions; a matching parent record is included.
+aml_alerts.alert_reference,Alert reference,AML monitoring,text,"Fictional alert reference; test-only values, not a real identity or payment credential."
+aml_alerts.created_at,Created at,AML monitoring,datetime,Synthetic created at for aml monitoring; illustrative test data.
+aml_alerts.rule_code,Rule code,AML monitoring,text,"Illustrative values: TEST-HIGH-VALUE, TEST-VELOCITY, TEST-CROSS-BORDER."
+aml_alerts.rule_name,Rule name,AML monitoring,text,Illustrative values: Illustrative monitoring rule.
+aml_alerts.alert_type,Alert type,AML monitoring,text,"Illustrative values: Transaction monitoring, Behavior review."
+aml_alerts.severity,Severity,AML monitoring,text,"Illustrative values: Low, Medium, High, Critical."
+aml_alerts.risk_score,Risk score,AML monitoring,integer,Synthetic risk score. Illustrative range: 0 to 100.
+aml_alerts.alert_status,Alert status,AML monitoring,text,"Illustrative values: Open, In review, Closed, Escalated."
+aml_alerts.assigned_analyst,Assigned analyst,AML monitoring,text,"Fictional assigned analyst; test-only values, not a real identity or payment credential."
+aml_alerts.case_reference,Case reference,AML monitoring,text,"Fictional case reference; test-only values, not a real identity or payment credential."
+aml_alerts.detection_channel,Detection channel,AML monitoring,text,"Illustrative values: Batch, Real-time."
+aml_alerts.transaction_count,Transaction count,AML monitoring,integer,Synthetic transaction count. Illustrative range: 1 to 100.
+aml_alerts.aggregate_amount,Aggregate amount,AML monitoring,decimal,Synthetic aggregate amount. Illustrative range: 1000 to 1000000.
+aml_alerts.currency,Currency,AML monitoring,text,Synthetic currency for aml monitoring; illustrative test data.
+aml_alerts.monitoring_window_days,Monitoring window days,AML monitoring,integer,Synthetic monitoring window days. Illustrative range: 1 to 90.
+aml_alerts.threshold_amount,Threshold amount,AML monitoring,decimal,Synthetic threshold amount. Illustrative range: 1000 to 100000.
+aml_alerts.reason_code,Reason code,AML monitoring,text,"Illustrative values: TEST-THRESHOLD, TEST-PATTERN, TEST-COUNTRY."
+aml_alerts.disposition,Disposition,AML monitoring,text,"Illustrative values: Unresolved, False positive, Further review."
+aml_alerts.escalation_required,Escalation required,AML monitoring,boolean,Synthetic escalation required for aml monitoring; illustrative test data.
+aml_alerts.investigation_note,Investigation note,AML monitoring,text,Illustrative values: Synthetic alert for workflow testing only.
+aml_alerts.model_version,Model version,AML monitoring,text,"Illustrative values: test-v1, test-v2."
+aml_alerts.review_due_date,Review due date,AML monitoring,date,Synthetic review due date for aml monitoring; illustrative test data.
+aml_alerts.is_test_alert,Is test alert,AML monitoring,boolean,Synthetic is test alert for aml monitoring; illustrative test data.
+digital_sessions.session_id,Session ID,Digital banking,text,Unique fictional primary key; automatically included for this table.
+digital_sessions.customer_id,Customer ID,Digital banking,text,Join key to Customer profiles; a matching parent record is included.
+digital_sessions.login_at,Login at,Digital banking,datetime,Synthetic login at for digital banking; illustrative test data.
+digital_sessions.logout_at,Logout at,Digital banking,datetime,Logout at calculated from related values in this synthetic dataset.
+digital_sessions.duration_seconds,Duration seconds,Digital banking,integer,Synthetic duration seconds. Illustrative range: 10 to 7200.
+digital_sessions.channel,Channel,Digital banking,text,"Illustrative values: Mobile, Web."
+digital_sessions.device_id,Device ID,Digital banking,text,"Fictional device id; test-only values, not a real identity or payment credential."
+digital_sessions.device_type,Device type,Digital banking,text,"Illustrative values: Phone, Tablet, Desktop."
+digital_sessions.operating_system,Operating system,Digital banking,text,"Illustrative values: Test iOS, Test Android, Test Windows, Test Linux."
+digital_sessions.browser,Browser,Digital banking,text,"Illustrative values: Test Chrome, Test Safari, Test Firefox."
+digital_sessions.app_version,App version,Digital banking,text,"Illustrative values: 1.0.0, 1.1.0, 2.0.0."
+digital_sessions.ip_address,IP address,Digital banking,text,"Fictional ip address; test-only values, not a real identity or payment credential."
+digital_sessions.country,Country,Digital banking,text,Synthetic country for digital banking; illustrative test data.
+digital_sessions.city,City,Digital banking,text,"Illustrative values: Test Central, Test North, Test West."
+digital_sessions.authentication_method,Authentication method,Digital banking,text,"Illustrative values: Password, Biometric, Passkey."
+digital_sessions.multi_factor_used,Multi factor used,Digital banking,boolean,Synthetic multi factor used for digital banking; illustrative test data.
+digital_sessions.login_result,Login result,Digital banking,text,"Illustrative values: Success, Failed, Locked."
+digital_sessions.failed_attempts,Failed attempts,Digital banking,integer,Synthetic failed attempts. Illustrative range: 0 to 5.
+digital_sessions.pages_viewed,Pages viewed,Digital banking,integer,Synthetic pages viewed. Illustrative range: 1 to 50.
+digital_sessions.actions_count,Actions count,Digital banking,integer,Synthetic actions count. Illustrative range: 0 to 30.
+digital_sessions.payment_initiated,Payment initiated,Digital banking,boolean,Synthetic payment initiated for digital banking; illustrative test data.
+digital_sessions.password_changed,Password changed,Digital banking,boolean,Synthetic password changed for digital banking; illustrative test data.
+digital_sessions.new_device,New device,Digital banking,boolean,Synthetic new device for digital banking; illustrative test data.
+digital_sessions.session_risk_score,Session risk score,Digital banking,integer,Synthetic session risk score. Illustrative range: 0 to 100.
+digital_sessions.connection_type,Connection type,Digital banking,text,"Illustrative values: WiFi, Mobile, Wired."
+branches.branch_id,Branch ID,Branch network,text,Unique fictional primary key; automatically included for this table.
+branches.branch_code,Branch code,Branch network,text,"Fictional branch code; test-only values, not a real identity or payment credential."
+branches.branch_name,Branch name,Branch network,text,"Fictional branch name; test-only values, not a real identity or payment credential."
+branches.branch_type,Branch type,Branch network,text,"Illustrative values: Retail, Corporate, Digital service center."
+branches.address,Address,Branch network,text,"Fictional address; test-only values, not a real identity or payment credential."
+branches.city,City,Branch network,text,"Illustrative values: Test Central, Test North, Test West."
+branches.country,Country,Branch network,text,Synthetic country for branch network; illustrative test data.
+branches.postal_code,Postal code,Branch network,text,"Fictional postal code; test-only values, not a real identity or payment credential."
+branches.region,Region,Branch network,text,"Illustrative values: North, South, East, West, Central."
+branches.phone,Phone,Branch network,text,"Fictional phone; test-only values, not a real identity or payment credential."
+branches.email,Email,Branch network,text,"Fictional email; test-only values, not a real identity or payment credential."
+branches.opening_date,Opening date,Branch network,date,Synthetic opening date for branch network; illustrative test data.
+branches.branch_status,Branch status,Branch network,text,"Illustrative values: Open, Temporarily closed."
+branches.manager_reference,Manager reference,Branch network,text,"Fictional manager reference; test-only values, not a real identity or payment credential."
+branches.staff_count,Staff count,Branch network,integer,Synthetic staff count. Illustrative range: 2 to 100.
+branches.atm_count,Atm count,Branch network,integer,Synthetic atm count. Illustrative range: 0 to 10.
+branches.counter_count,Counter count,Branch network,integer,Synthetic counter count. Illustrative range: 1 to 20.
+branches.accessible_entrance,Accessible entrance,Branch network,boolean,Synthetic accessible entrance for branch network; illustrative test data.
+branches.weekend_service,Weekend service,Branch network,boolean,Synthetic weekend service for branch network; illustrative test data.
+branches.cash_service,Cash service,Branch network,boolean,Synthetic cash service for branch network; illustrative test data.
+branches.advisory_service,Advisory service,Branch network,boolean,Synthetic advisory service for branch network; illustrative test data.
+branches.safe_deposit_service,Safe deposit service,Branch network,boolean,Synthetic safe deposit service for branch network; illustrative test data.
+branches.opening_hour,Opening hour,Branch network,text,"Illustrative values: 08:00, 09:00, 10:00."
+branches.closing_hour,Closing hour,Branch network,text,"Illustrative values: 16:00, 17:00, 18:00."
+branches.timezone,Timezone,Branch network,text,"Illustrative values: Asia/Singapore, Europe/London, America/New_York, Europe/Berlin."
+complaints.complaint_id,Complaint ID,Service & complaints,text,Unique fictional primary key; automatically included for this table.
+complaints.customer_id,Customer ID,Service & complaints,text,Join key to Customer profiles; a matching parent record is included.
+complaints.case_reference,Case reference,Service & complaints,text,"Fictional case reference; test-only values, not a real identity or payment credential."
+complaints.received_date,Received date,Service & complaints,date,Synthetic received date for service & complaints; illustrative test data.
+complaints.channel,Channel,Service & complaints,text,"Illustrative values: Phone, Email, Branch, Online."
+complaints.category,Category,Service & complaints,text,"Illustrative values: Service, Fees, Payments, Access, Product."
+complaints.subcategory,Subcategory,Service & complaints,text,"Illustrative values: Delay, Incorrect charge, Availability, Communication."
+complaints.product_area,Product area,Service & complaints,text,"Illustrative values: Accounts, Cards, Loans, Payments."
+complaints.subject,Subject,Service & complaints,text,"Illustrative values: Synthetic service case, Synthetic fee query, Synthetic access issue."
+complaints.description,Description,Service & complaints,text,Illustrative values: Fictional complaint for case-management testing.
+complaints.priority,Priority,Service & complaints,text,"Illustrative values: Low, Normal, High."
+complaints.complaint_status,Complaint status,Service & complaints,text,"Illustrative values: Open, In progress, Resolved."
+complaints.assigned_team,Assigned team,Service & complaints,text,"Illustrative values: Service, Operations, Product."
+complaints.assigned_agent,Assigned agent,Service & complaints,text,"Fictional assigned agent; test-only values, not a real identity or payment credential."
+complaints.response_due_date,Response due date,Service & complaints,date,Synthetic response due date for service & complaints; illustrative test data.
+complaints.resolution_code,Resolution code,Service & complaints,text,"Illustrative values: Pending, Explanation, Refund, Correction."
+complaints.compensation_amount,Compensation amount,Service & complaints,decimal,Synthetic compensation amount. Illustrative range: 0 to 1000.
+complaints.currency,Currency,Service & complaints,text,Synthetic currency for service & complaints; illustrative test data.
+complaints.customer_satisfaction_score,Customer satisfaction score,Service & complaints,integer,Synthetic customer satisfaction score. Illustrative range: 1 to 5.
+complaints.escalated,Escalated,Service & complaints,boolean,Synthetic escalated for service & complaints; illustrative test data.
+complaints.regulatory_referral,Regulatory referral,Service & complaints,boolean,Synthetic regulatory referral for service & complaints; illustrative test data.
+complaints.contact_preference,Contact preference,Service & complaints,text,"Illustrative values: Email, Phone, Letter."
+complaints.follow_up_required,Follow up required,Service & complaints,boolean,Synthetic follow up required for service & complaints; illustrative test data.
+complaints.attachment_count,Attachment count,Service & complaints,integer,Synthetic attachment count. Illustrative range: 0 to 10.
+complaints.response_time_hours,Response time hours,Service & complaints,integer,Synthetic response time hours. Illustrative range: 1 to 240.
+consents.consent_id,Consent ID,Consent & preferences,text,Unique fictional primary key; automatically included for this table.
+consents.customer_id,Customer ID,Consent & preferences,text,Join key to Customer profiles; a matching parent record is included.
+consents.consent_reference,Consent reference,Consent & preferences,text,"Fictional consent reference; test-only values, not a real identity or payment credential."
+consents.consent_type,Consent type,Consent & preferences,text,"Illustrative values: Marketing, Analytics, Open banking, Data sharing."
+consents.purpose,Purpose,Consent & preferences,text,Illustrative values: Synthetic consent workflow testing.
+consents.consent_status,Consent status,Consent & preferences,text,"Illustrative values: Granted, Withdrawn, Expired."
+consents.captured_date,Captured date,Consent & preferences,date,Synthetic captured date for consent & preferences; illustrative test data.
+consents.expiry_date,Expiry date,Consent & preferences,date,Synthetic expiry date for consent & preferences; illustrative test data.
+consents.capture_channel,Capture channel,Consent & preferences,text,"Illustrative values: Mobile, Web, Branch, Phone."
+consents.policy_version,Policy version,Consent & preferences,text,"Illustrative values: test-1.0, test-2.0."
+consents.policy_language,Policy language,Consent & preferences,text,"Illustrative values: English, Mandarin, Malay, Tamil."
+consents.email_marketing,Email marketing,Consent & preferences,boolean,Synthetic email marketing for consent & preferences; illustrative test data.
+consents.sms_marketing,Sms marketing,Consent & preferences,boolean,Synthetic sms marketing for consent & preferences; illustrative test data.
+consents.phone_marketing,Phone marketing,Consent & preferences,boolean,Synthetic phone marketing for consent & preferences; illustrative test data.
+consents.push_notifications,Push notifications,Consent & preferences,boolean,Synthetic push notifications for consent & preferences; illustrative test data.
+consents.third_party_sharing,Third party sharing,Consent & preferences,boolean,Synthetic third party sharing for consent & preferences; illustrative test data.
+consents.profiling_allowed,Profiling allowed,Consent & preferences,boolean,Synthetic profiling allowed for consent & preferences; illustrative test data.
+consents.analytics_allowed,Analytics allowed,Consent & preferences,boolean,Synthetic analytics allowed for consent & preferences; illustrative test data.
+consents.data_scope,Data scope,Consent & preferences,text,"Illustrative values: Profile, Accounts, Transactions, All selected."
+consents.recipient_reference,Recipient reference,Consent & preferences,text,"Fictional recipient reference; test-only values, not a real identity or payment credential."
+consents.retention_days,Retention days,Consent & preferences,integer,Synthetic retention days. Illustrative range: 30 to 730.
+consents.proof_reference,Proof reference,Consent & preferences,text,"Fictional proof reference; test-only values, not a real identity or payment credential."
+consents.ip_address,IP address,Consent & preferences,text,"Fictional ip address; test-only values, not a real identity or payment credential."
+consents.device_reference,Device reference,Consent & preferences,text,"Fictional device reference; test-only values, not a real identity or payment credential."
+consents.renewal_required,Renewal required,Consent & preferences,boolean,Synthetic renewal required for consent & preferences; illustrative test data.
